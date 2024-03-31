@@ -1,2 +1,3 @@
 # UnitTestFramewok
-This is my study unit test framework that is to be developed further 
+A simple unit test framework that is to be developed further. 
+TODO: make a shared lib
