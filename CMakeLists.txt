@@ -1,9 +1,12 @@
 cmake_minimum_required(VERSION 3.11)
 
-project(UnitTestLib version 1.0 DESCRIPTION "a simple unit test framework")
+project(libUnitTest CXX)
+
 set(CMAKE_CXX_STANDARD 17)
 set(PROJECT_VERSION 1)
 set(PROJECT_VERSION_MAJOR 0)
+set(PROJECT_DESCRIPTION "A unit test lib")
+
 set(API 
     hdrs/TestRunner.h		
     hdrs/helperFunctions.h	
@@ -20,7 +23,7 @@ set_target_properties(UnitTestLib PROPERTIES
     SOVERSION ${PROJECT_VERSION_MAJOR}
     PUBLIC_HEADER ${API} #Declare public API of your library. 
 )
-configure_file(UnitTestLib.pc.in mylib.pc @ONLY)
+configure_file(UnitTestLib.pc.in ${CMAKE_SOURCE_DIR}/UnitTestLib.pc @ONLY)
 target_include_directories(UnitTestLib PRIVATE hdrs)
 
 install(TARGETS UnitTestLib
