@@ -7,6 +7,7 @@ This library provides: <br />
 - helper macros for short asserts and test running <br />
 
 # build
+In the source root:
 `mkdir build` <br /> 
 `cd build && cmake ..` <br /> 
 `make` <br /> 
