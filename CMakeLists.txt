@@ -1,54 +1,33 @@
 cmake_minimum_required(VERSION 3.11)
 
-project(libUnitTest CXX)
+project(libunittest CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(PROJECT_VERSION 1)
 set(PROJECT_VERSION_MAJOR 0)
 set(PROJECT_DESCRIPTION "A unit test lib")
 
-set(API 
-    hdrs/TestRunner.h		
-    hdrs/helperFunctions.h	
-    hdrs/helperMacros.h
-)
+set(API include/TestRunner.h)
 include(GNUInstallDirs)
 
-add_library(UnitTestLib SHARED
-    src/TestRunner.cpp
+add_library(libunittest SHARED
+    source/TestRunner.cpp
 )
 
-set_target_properties(UnitTestLib PROPERTIES 
+set_target_properties(libunittest PROPERTIES 
     VERSION ${PROJECT_VERSION}
     SOVERSION ${PROJECT_VERSION_MAJOR}
-    PUBLIC_HEADER ${API} #Declare public API of your library. 
+    PUBLIC_HEADER ${API} #Declare public API
 )
-configure_file(UnitTestLib.pc.in ${CMAKE_SOURCE_DIR}/UnitTestLib.pc @ONLY)
-target_include_directories(UnitTestLib PRIVATE hdrs)
 
-install(TARGETS UnitTestLib
+configure_file(libunittest.pc.in ${CMAKE_SOURCE_DIR}/libunittest.pc @ONLY)
+target_include_directories(libunittest PRIVATE hdrs)
+
+install(TARGETS libunittest
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 )
 
-install(FILES ${CMAKE_SOURCE_DIR}/UnitTestLib.pc 
+install(FILES ${CMAKE_SOURCE_DIR}/libunittest.pc 
     DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/pkgconfig
 )
-
-
-# cmake_minimum_required(VERSION 3.11)
-# project(UnitTestLib VERSION 1.0 DESCRIPTION "mylib description")
-# include(GNUInstallDirs)
-# add_library(UnitTestLib SHARED src/mylib.c)
-# set_target_properties(mylib PROPERTIES
-#     VERSION ${PROJECT_VERSION}
-#     SOVERSION ${PROJECT_VERSION_MAJOR}
-#     PUBLIC_HEADER api/mylib.h)
-# configure_file(mylib.pc.in mylib.pc @ONLY)
-# target_include_directories(mylib PRIVATE .)
-# install(TARGETS mylib
-#     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-#     PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
-# install(FILES ${CMAKE_BINARY_DIR}/mylib.pc
-#     DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/pkgconfig)
-
