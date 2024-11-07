@@ -1,12 +1,11 @@
 
-### VisualStudioCode ###
-.vscode/*
+.vscode
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 
-B[b]uild/*
-L[l]ocal/*
-S[s]cripts/*
+[Bb]uild
+[Ll]ocal
+[Ss]cripts
 
 *.pc

@@ -5,13 +5,13 @@ project(unittest CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(PROJECT_VERSION 1)
 set(PROJECT_VERSION_MAJOR 0)
-set(PROJECT_DESCRIPTION "A unit test lib")
+set(PROJECT_DESCRIPTION "A simple c++ unittest library")
 
-set(API include/TestRunner.h)
+set(API include/unittest_test_runner.h)
 include(GNUInstallDirs)
 
 add_library(unittest SHARED
-    source/TestRunner.cpp
+    source/test_runner.cpp
 )
 
 set_target_properties(unittest PROPERTIES 
