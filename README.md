@@ -13,4 +13,4 @@ In the source root: <br />
 `make` <br /> 
 
 # install 
-`make install` <br /> 
+`sudo make install` <br /> 
