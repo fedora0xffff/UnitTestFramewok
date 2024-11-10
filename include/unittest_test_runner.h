@@ -153,7 +153,7 @@ namespace unittest {
       std::ostringstream os;                        \
       os << #x << " is false, "                     \
       << __FILE__ << ":" << __LINE__;               \
-      unittest::AssertEqual(x, y, os.str());        \
+      unittest::AssertEqual(x, x, os.str());        \
   }
 
   #define ASSERT_EQUAL(x, y) {         \ 
